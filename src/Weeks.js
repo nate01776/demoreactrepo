@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
 import Game from './Games.js'
 
-class Week extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weekData: this.props.weekData
-    }
+const Week = props => {
+  let weekObjects = []
+  let weekData = props.weekData
+  let weekCount = props.weekCount
+
+  for (var i = 0; i < weekCount; i++) {
+    weekObjects.push(
+      <Game
+        data={weekData[i]}
+        key={i}
+        handleGetGame={props.handleGetGame}
+      />
+    )
   }
 
-  render() {
-    console.log(this.state.weekData)
-    let weekObjects = []
-
-    for (var i = 0; i < 5; i++) {
-      weekObjects.push(
-        <Game
-          data={this.state.weekData}
-          key={i}
-        />
-      )
-    }
-
-    return (
-      <div className="week_container">
-        {weekObjects}
-      </div>
-    );
-  }
+  return (
+    <div className="week_container">
+      {weekObjects}
+    </div>
+  );
 }
 
 export default Week;

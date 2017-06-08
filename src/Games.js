@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 const Game = props => {
-  // <h2>{props.homeTeam} @ {this.state.awayTeam}</h2>
+  let homeTeam = props.data["home"]
+  let awayTeam = props.data["away"]
 
   return (
-    <div className="game_container">
+    <div className="game_container" id={props.data["id"]} onClick={props.handleGetGame}>
+      <h2 id={props.data["id"]}>{homeTeam} @ {awayTeam}</h2>
     </div>
   );
 }
