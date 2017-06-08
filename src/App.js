@@ -6,9 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      weekSelection: 0,
-      weekData: "",
-      gameData: ""
+      weekData: ""
     }
     this.handleGetGames = this.handleGetGames.bind(this)
     this.handleUpdateWeek = this.handleUpdateWeek.bind(this)
@@ -35,11 +33,7 @@ class App extends Component {
     this.handleGetGames(button.target.id)
   }
 
-
-
   render() {
-    let weekGames = []
-
     return (
       <div className="App">
         <div className='page_header'>
@@ -47,7 +41,9 @@ class App extends Component {
         </div>
         <div>
           <button onClick={this.handleUpdateWeek} id="1">1</button>
-          <button onClick={this.handleUpdateWeek} id="1">2</button>
+          <button onClick={this.handleUpdateWeek} id="2">2</button>
+          <button onClick={this.handleUpdateWeek} id="3">3</button>
+          <button onClick={this.handleUpdateWeek} id="4">4</button>
         </div>
         <div className="weekData">
           <Week

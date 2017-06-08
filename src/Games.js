@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-const Game = props =>{
-  let data = props.
+const Game = props => {
+  // <h2>{props.homeTeam} @ {this.state.awayTeam}</h2>
+
   return (
-    <div>
-      <h2>Game Container</h2>
+    <div className="game_container">
     </div>
   );
 }
