@@ -1,17 +1,12 @@
 .page_header {
-  background-color: grey;
+  background-color: red;
+  color: white;
   text-align: center;
   padding-top: 2px;
 }
 
-.button_row {
-  display: flex;
-  justify-content: space-around;
-  background-color: lightgrey;
-}
-
-.header_button:hover {
-  text-decoration: underline;
+.weekData {
+  background-color: orange;
 }
 
 @keyframes App-logo-spin {
