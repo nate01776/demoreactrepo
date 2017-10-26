@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/authors/{id}" path="/authors/{id}" id="c96e64cb-0170-4ef9-9844-ce7a6b23ddb3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c96e64cb-0170-4ef9-9844-ce7a6b23ddb3fileName">%2Fauthors%2F%7Bid%7D</con:setting></con:settings><con:parameters><con:parameter required="true"><con:name>id</con:name><con:style>TEMPLATE</con:style><con:description>book id</con:description></con:parameter></con:parameters><con:method name="GET" id="0eb7aad6-c545-4fff-9dfb-d0936536268e" method="GET"><con:description>Query for a specific author by ID.
+returns author object</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:sampleContent>{
+  "status" : 200,
+  "result" : {
+    "id" : 254,
+    "first_name" : "George R.R.",
+    "last_name" : "Martin",
+    "_link" : "/authors/254"
+  }
+}</con:sampleContent></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:sampleContent>{
+  "status" : 404,
+  "message" : "Resource not found"
+}</con:sampleContent></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="22d24568-5371-4087-aa1f-4c942532f18d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8088/</con:endpoint><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:parameters/></con:request></con:method></con:resource>

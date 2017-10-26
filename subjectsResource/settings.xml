@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="04e09421-0ab7-438a-94d1-a815cecafa15" name="subjectsResource" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="04e09421-0ab7-438a-94d1-a815cecafa15fileName">subjectsResource</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

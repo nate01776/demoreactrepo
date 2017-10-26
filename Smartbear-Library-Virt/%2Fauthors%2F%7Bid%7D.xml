@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/authors/{id}" method="GET" resourcePath="/authors/{id}" id="a1eb531f-6b1b-42ac-b151-68f5b532c3d3" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a1eb531f-6b1b-42ac-b151-68f5b532c3d3fileName">%2Fauthors%2F%7Bid%7D</con:setting></con:settings><con:defaultResponse>404</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchConfig/><con:dispatchXPath/><con:parameterDispatcherRuleContainer><con:ParameterDispatcherRule><con:ruleName>254</con:ruleName><con:parameterDispatcherCondition><con:parameterType>PATH</con:parameterType><con:parameterOperationType>EQUALS</con:parameterOperationType><con:parameterName>id</con:parameterName><con:parameterValue>254</con:parameterValue></con:parameterDispatcherCondition><con:responseName>200_id=254</con:responseName></con:ParameterDispatcherRule><con:ParameterDispatcherRule><con:ruleName>255</con:ruleName><con:parameterDispatcherCondition><con:parameterType>PATH</con:parameterType><con:parameterOperationType>EQUALS</con:parameterOperationType><con:parameterName>id</con:parameterName><con:parameterValue>255</con:parameterValue></con:parameterDispatcherCondition><con:responseName>200_id=255</con:responseName></con:ParameterDispatcherRule><con:ParameterDispatcherRule><con:ruleName>256</con:ruleName><con:parameterDispatcherCondition><con:parameterType>PATH</con:parameterType><con:parameterOperationType>EQUALS</con:parameterOperationType><con:parameterName>id</con:parameterName><con:parameterValue>256</con:parameterValue></con:parameterDispatcherCondition><con:responseName>200_id=256</con:responseName></con:ParameterDispatcherRule></con:parameterDispatcherRuleContainer><con:routeScript/><con:response name="200_id=254" id="f3ed3c19-c65e-4387-b904-9c1d2b349779" httpResponseStatus="200" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status" : 200,
+  "result" : {
+    "id" : 254,
+    "first_name" : "George R.R.",
+    "last_name" : "Martin",
+    "_link" : "/authors/254"
+  }
+}</con:responseContent></con:response><con:response name="404" id="384057dc-faf6-4fb6-8959-3caed53ce7fc" httpResponseStatus="404" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status" : 404,
+  "message" : "Resource not found"
+}</con:responseContent></con:response><con:response name="200_id=255" id="44ceda23-7780-4960-a5b5-29633a646680" httpResponseStatus="200" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status" : 200,
+  "result" : {
+    "id" : 255,
+    "first_name" : "Bill",
+    "last_name" : "Bryson",
+    "_link" : "/authors/255"
+  }
+}</con:responseContent></con:response><con:response name="200_id=256" id="9e6af6f9-63c7-4a5a-b58d-0c27dfc02518" httpResponseStatus="200" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status" : 200,
+  "result" : {
+    "id" : 256,
+    "first_name" : "Stephen",
+    "last_name" : "King",
+    "_link" : "/authors/256"
+  }
+}</con:responseContent></con:response></con:restMockAction>

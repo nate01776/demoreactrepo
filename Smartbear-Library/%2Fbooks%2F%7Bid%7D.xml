@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/books/{id}" path="/books/{id}" id="ff2c3047-7be3-499a-9c48-66c7a1b62718" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ff2c3047-7be3-499a-9c48-66c7a1b62718fileName">%2Fbooks%2F%7Bid%7D</con:setting></con:settings><con:parameters><con:parameter required="true"><con:name>id</con:name><con:style>TEMPLATE</con:style><con:description>book id</con:description></con:parameter></con:parameters><con:method name="GET" id="3bc32d45-cf71-4fed-9f5a-73a9f6697fed" method="GET"><con:description>Returns single book object based on ID
+GETs book object</con:description><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:sampleContent>{
+  "status" : 200,
+  "result" : {
+    "id" : 105,
+    "title" : "A Game of Thrones",
+    "description" : "From a master of contemporary fantasy comes the first novel of a landmark series...",
+    "author" : {
+      "id" : 254,
+      "first_name" : "George R.R.",
+      "last_name" : "Martin",
+      "_link" : "/authors/254"
+    },
+    "_link" : "/books/105"
+  }
+}</con:sampleContent></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:sampleContent>{
+  "status" : 404,
+  "message" : "Resource not found"
+}</con:sampleContent></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:book="http://localhost/books/">book:Fault</con:element></con:representation><con:request name="Request 1" id="9c0ac312-787f-4056-9e2d-9bf6736fe150" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8088/</con:endpoint><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:parameters/></con:request></con:method></con:resource>

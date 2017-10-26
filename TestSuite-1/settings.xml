@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="3a7a1de5-b2a0-4b5a-8eb1-ebd85eadd12e" name="booksResource" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3a7a1de5-b2a0-4b5a-8eb1-ebd85eadd12efileName">TestSuite-1</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

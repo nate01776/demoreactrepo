@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/books" method="GET" resourcePath="/books" id="1362de98-8d1b-47cf-8d1a-0af5f03a8724" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1362de98-8d1b-47cf-8d1a-0af5f03a8724fileName">%2Fbooks</con:setting></con:settings><con:defaultResponse>200</con:defaultResponse><con:dispatchStyle>PARAMETER</con:dispatchStyle><con:dispatchConfig/><con:dispatchXPath/><con:parameterDispatcherRuleContainer/><con:routeScript/><con:response name="200" id="66baf22d-ddaa-48c9-9384-ce5b2db073da" httpResponseStatus="200" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status": 200,
+  "result": [
+    {
+      "id": 105,
+      "title": "A Game of Thrones",
+      "authorID": 254,
+      "_link": "/books/105",
+      "_authorLink": "/authors/254"
+    },
+    {
+      "id": 106,
+      "title": "A Clash of Kings",
+      "authorID": 254,
+      "_link": "/books/106",
+      "_authorLink": "/authors/254"
+    },
+    {
+      "id": 107,
+      "title": "A Storm of Swords",
+      "authorID": 254,
+      "_link": "/books/107",
+      "_authorLink": "/authors/254"
+    },
+    {
+      "id": 108,
+      "title": "A Feast for Crows",
+      "authorID": 254,
+      "_link": "/books/108",
+      "_authorLink": "/authors/254"
+    },
+    {
+      "id": 109,
+      "title": "A Dance with Dragons",
+      "authorID": 254,
+      "_link": "/books/109",
+      "_authorLink": "/authors/254"
+    },
+    {
+      "id": 110,
+      "title": "Notes From A Small Island",
+      "authorID": 255,
+      "_link": "/books/110",
+      "_authorLink": "/authors/255"
+    },
+    {
+      "id": 111,
+      "title": "Neither Here Nor There",
+      "authorID": 255,
+      "_link": "/books/111",
+      "_authorLink": "/authors/255"
+    },
+    {
+      "id": 112,
+      "title": "IT",
+      "authorID": 256,
+      "_link": "/books/112",
+      "_authorLink": "/authors/256"
+    }
+  ]
+}</con:responseContent></con:response><con:response name="404" id="bed0ede5-00cc-45d4-be49-0a0523b27098" httpResponseStatus="404" mediaType="application/json" dataSource=""><con:settings/><con:responseContent>{
+  "status" : 404,
+  "message" : "Resource not found"
+}</con:responseContent></con:response></con:restMockAction>
