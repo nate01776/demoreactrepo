@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/authors" path="/authors" id="81a5ac94-281d-4cc7-95a7-169b46256f18" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="81a5ac94-281d-4cc7-95a7-169b46256f18fileName">%2Fauthors</con:setting></con:settings><con:parameters/><con:method name="GET" id="78f2d559-ef76-4cf0-9eb0-5aaf9c0a2d4f" method="GET"><con:description>Returns array based on author search params.
-searches authors</con:description><con:settings/><con:parameters><con:parameter><con:name>first_name</con:name><con:style>QUERY</con:style><con:description>first name search parameter</con:description></con:parameter><con:parameter><con:name>last_name</con:name><con:style>QUERY</con:style><con:description>last name search parameter</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:sampleContent>{
-  "status" : 200,
-  "results" : [ ]
-}</con:sampleContent></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:sampleContent>{
-  "status" : 404,
-  "message" : "Resource not found"
-}</con:sampleContent></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="9204ecc6-ad92-46d6-bdf8-bd3fa5fa5c1f" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8088/</con:endpoint><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:parameters/></con:request></con:method></con:resource>
