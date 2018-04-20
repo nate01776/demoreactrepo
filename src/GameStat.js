@@ -25,12 +25,12 @@ const GameStat = props => {
     classString = "stat_container blue"
   }
 
+  // <i className="fa fa-plus-square" aria-hidden="true" onClick={props.handleGetPlayerInfo} id={playerID}></i>
+
   return (
     <div className={classString}>
-      {arrow}
       <h3>{playType}</h3>
       <h4>{yards} yards</h4>
-      <i className="fa fa-plus-square" aria-hidden="true" onClick={props.handleGetPlayerInfo} id={playerID}></i>
     </div>
   );
 }

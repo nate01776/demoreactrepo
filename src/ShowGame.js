@@ -36,8 +36,10 @@ const ShowGame = props => {
 
   return (
     <div className="single_game_container">
-      <h2>{awayTeam} @ {homeTeam}</h2>
-      <h3>{awayScore} - {homeScore}</h3>
+      <div className="game-results">
+        <h2>{awayTeam} @ {homeTeam}</h2>
+        <h3>{awayScore} - {homeScore}</h3>
+      </div>
       <div className="game_stats_container">
         {gameStatArray}
       </div>

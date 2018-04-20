@@ -8,12 +8,66 @@ body {
 
 .page_header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
+  color: #FFFFFF;
+  text-align: left;
+  padding: 5px;
+  padding-left: 50px;
+  font-family: 'Shrikhand', cursive;
+  background-color: #0074D9;
+  letter-spacing: 2px;
+  height: 8vh;
+  /* z-index: 10000; */
+}
+
+.main-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.weeks-column {
+  /* z-index: -1; */
+  width: 15vw;
+  height: 90vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.weeks-column h3 {
+  text-align: center;
+}
+
+.games-column {
+  /* z-index: -1; */
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  background-color: white;
+  align-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: 90vh;
+  border-left: 1px solid #0074D9;
+}
+
+.games-column h3 {
   color: black;
   text-align: center;
-  padding: 5px;
-  margin-bottom: 5px;
-  font-family: Calibri;
+}
+
+.results-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55vw;
+  height: 90vh;
   background-color: white;
+  border-left: 1px solid blue;
+  overflow-y: scroll;
+}
+
+.results-column h3 {
+  text-align: center;
 }
 
 button {
@@ -23,14 +77,16 @@ button {
   font-size: 18px;
   transition: .2s ease;
   padding: 10px;
-  margin: 5px;
-  width: 7vw;
-  background-color: white;
+  margin: 10px;
+  width: 90%;
+  background-color: #0074D9;
+  color: white;
   border: none;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
 }
 
 button:hover {
+  cursor: pointer;
   transition: .2s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.2);
 }
@@ -42,23 +98,24 @@ button:hover {
   margin-top: 10px;
 }
 
-.week_container {
+/* .week_container {
   transition: .2s ease;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-end;
   transition: .2s ease;
-}
+} */
 
 .game_container {
   border-radius: 2px;
   text-align: center;
-  width: 20vw;
+  width: 25vw;
   padding: 10px;
-  margin: 5px;
+  margin: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
-  background-color: white;
+  background-color: #0074D9;
+  color: white;
   font-family: Calibri;
   font-weight: bold;
 }
@@ -66,10 +123,12 @@ button:hover {
 .game_container h2 {
   font-family: Calibri;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
+  margin: 0;
 }
 
 .game_container:hover {
+  cursor: pointer;
   transition: .2s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.2);
 }
@@ -84,19 +143,32 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 5px;
 }
 
 .stat_container {
   transition: .2s ease;
   width: 5vw;
   text-align: center;
-  margin: 5px;
-  padding: 10px;
+  margin: 2px;
+  padding: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
 }
 
+.stat_container h3 {
+  margin: 0;
+}
+
+.stat_container h4 {
+  margin: 0;
+}
+
 .stat_container:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #0074D9;
   transition: .2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .green {
@@ -130,4 +202,12 @@ button:hover {
 .player_image {
   width: 10vw;
   border-radius: 50%;
+}
+
+.game-results {
+  background-color: #0074D9;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.2);
+  color: white;
+  padding: 10px;
 }

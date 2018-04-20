@@ -60,25 +60,33 @@ class App extends Component {
         <div className='page_header'>
           <h1 className='page_title'>NFL STAT APP</h1>
         </div>
-        <div>
-          <button onClick={this.handleUpdateWeek} id="1">1</button>
-          <button onClick={this.handleUpdateWeek} id="2">2</button>
-          <button onClick={this.handleUpdateWeek} id="3">3</button>
-          <button onClick={this.handleUpdateWeek} id="4">4</button>
+        <div className="main-page">
+          <div className="weeks-column">
+            <h3>WEEK</h3>
+            <button onClick={this.handleUpdateWeek} id="1">1</button>
+            <button onClick={this.handleUpdateWeek} id="2">2</button>
+            <button onClick={this.handleUpdateWeek} id="3">3</button>
+            <button onClick={this.handleUpdateWeek} id="4">4</button>
+          </div>
+          <div className="games-column">
+            <h3>GAMES</h3>
+            <Week
+              weekData={this.state.weekData}
+              weekCount={this.state.weekCount}
+              handleGetGame={this.handleGetGame}
+            />
+          </div>
+          <div className="results-column">
+            <h3>RESULTS</h3>
+            <div className="gameData">
+              <ShowGame
+                gameData={this.state.gameData}
+                gameStats={this.state.gameStats}
+              />
+            </div>
+          </div>
         </div>
-        <div className="weekData">
-          <Week
-            weekData={this.state.weekData}
-            weekCount={this.state.weekCount}
-            handleGetGame={this.handleGetGame}
-          />
-        </div>
-        <div className="gameData">
-          <ShowGame
-            gameData={this.state.gameData}
-            gameStats={this.state.gameStats}
-          />
-        </div>
+        
       </div>
     );
   }
