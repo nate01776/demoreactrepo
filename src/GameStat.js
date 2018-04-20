@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const GameStat = props => {
   let classString = "stat_container"
@@ -11,13 +11,13 @@ const GameStat = props => {
 
   if (direction === "right") {
     arrow = <i className='fa fa-arrow-right' aria-hidden='true'></i>
-  } else if (direction == "middle") {
+  } else if (direction === "middle") {
     arrow = <i className='fa fa-arrow-up' aria-hidden='true'></i>
   }
 
   if (playType === "pass" && complete) {
     classString = "stat_container green"
-  } else if (playType === "pass" && complete != true) {
+  } else if (playType === "pass" && complete !== true) {
     classString = "stat_container red"
   } else if (playType === "rec") {
     classString = "stat_container yellow"
