@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9a893cbd-1e48-42b5-b7c9-908cd69da329" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="populate_/players" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9a893cbd-1e48-42b5-b7c9-908cd69da329fileName">populate_%2Fplayers</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="get_all_players" id="2218f7a0-7a74-424d-a698-c833358d1e9c">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/players" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="get_all_players" id="b2bc1302-7597-4fe1-a68f-92a92b984622" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://10.0.30.175/players</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="iterate_players" id="44aa3373-888b-412a-84bb-86d8c507c95e">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>get_all_players</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$['results']</rowPath>
+          <columnPath>id</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>id</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="player_by_id" id="a5468e86-9dbe-4188-8d27-dd437a7e130c">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/players/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="player_by_id" id="f479615a-7416-4ec2-82fa-75e2a9c384a0" mediaType="application/json">
+        <con:settings/>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/players/32</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="team" value=""/>
+          <con:entry key="id" value="${iterate_players#id}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="b68a0aef-ad79-4aa7-8dd4-798ad21e884b">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>iterate_players</dataSourceStep>
+      <targetStep>player_by_id</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>44aa3373-888b-412a-84bb-86d8c507c95e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b68a0aef-ad79-4aa7-8dd4-798ad21e884b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

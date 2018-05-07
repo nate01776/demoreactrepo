@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2f4050b8-de3d-460e-9cc7-2e4cccbcfdf3" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="populate_/teams" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2f4050b8-de3d-460e-9cc7-2e4cccbcfdf3fileName">populate_%2Fteams</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="all_teams" id="d404d4df-c955-4349-984a-e2f6d4b290d6">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/teams" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="all_teams" id="7907cad4-681f-4b16-aff2-ae5da014a345" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://10.0.30.175/teams</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="team_iterator" id="7819940e-dc5b-4b20-aed2-faa90bd9354d">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>all_teams</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$['results']</rowPath>
+          <columnPath>id</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>id</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="team_by_id" id="1335d160-298a-443e-98dd-c66eebcea251">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/teams/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="team_by_id" id="221a8c12-0e21-4cc4-8943-a041e495a782" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://10.0.30.175/teams/</con:originalUri>
+        <con:assertion type="JsonPath Match" id="95a04739-d3b7-451b-8972-c466f184189f" name="Match content of [id]">
+          <con:configuration>
+            <path>$['results']['id']</path>
+            <content>${team_iterator#id}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="name" value=""/>
+          <con:entry key="id" value="${team_iterator#id}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="datasource loop" id="58dab5e4-aa93-4f4a-8acd-68665a4a5ac0">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>team_iterator</dataSourceStep>
+      <targetStep>team_by_id</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>7819940e-dc5b-4b20-aed2-faa90bd9354d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>58dab5e4-aa93-4f4a-8acd-68665a4a5ac0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

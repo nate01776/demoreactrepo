@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="c5fa84b2-6d95-4b2b-a6e5-a515610c4dcd" name="mock_builder" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c5fa84b2-6d95-4b2b-a6e5-a515610c4dcdfileName">mock_builder</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

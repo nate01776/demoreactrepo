@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="dc0c396b-2b0e-4865-84da-d9c34a48ebcb" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="populate_/games" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dc0c396b-2b0e-4865-84da-d9c34a48ebcbfileName">populate_%2Fgames</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="week_store" id="eabd4351-c301-400b-81c0-20ef730242cf">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Grid">
+        <con:configuration>
+          <check><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry></xml-fragment>]]></check>
+          <row>&lt;xml-fragment>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">1&lt;/con:entry>&lt;con:entry xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></row>
+          <row>&lt;xml-fragment>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">2&lt;/con:entry>&lt;con:entry xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></row>
+          <row>&lt;xml-fragment>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">3&lt;/con:entry>&lt;con:entry xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></row>
+          <row>&lt;xml-fragment>&lt;con:entry xmlns:con="http://eviware.com/soapui/config">4&lt;/con:entry>&lt;con:entry xmlns:con="http://eviware.com/soapui/config"/>&lt;/xml-fragment></row>
+          <recognizeAsPlainText>true</recognizeAsPlainText>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>week_num</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="games_by_week" id="a68bd948-0534-4c2d-82ff-d269efeb960f">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/games" methodName="Games" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="games_by_week" id="bb6bc93b-6a35-4277-9500-b4a49d80c39b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://10.0.30.175/games</con:originalUri>
+        <con:assertion type="JsonPath Count" id="115db5e5-d598-45a6-8eaa-999302dc5e47" name="Check count of [results]">
+          <con:configuration>
+            <path>$['results']</path>
+            <content>${games_by_week#Response#$['results_count']}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="week" value="${week_store#week_num}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>week</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="array_iterator" id="dacadcb9-9968-42e3-b3ae-57b7539709a7">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>games_by_week</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>$['results']</rowPath>
+          <columnPath>id</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>id</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="game_by_id" id="a274e886-296d-4692-831e-07c69c20b302">
+    <con:settings/>
+    <con:config service="http://10.0.30.175:4567" resourcePath="/games/{id}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="game_by_id" id="982bdb86-0b4b-4caf-82a1-2443f151f349" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://10.0.30.175/games/477</con:originalUri>
+        <con:assertion type="JsonPath Match" id="fcd348a8-8eb9-4062-81f6-b4edfb92c761" name="Match content of [id]">
+          <con:configuration>
+            <path>$['results']['game_data']['id']</path>
+            <content>${game_by_id#id}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="week" value=""/>
+          <con:entry key="id" value="${array_iterator#id}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="b66b235e-89b0-4073-a4ad-9b74fd04d9e4">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>array_iterator</dataSourceStep>
+      <targetStep>game_by_id</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop 2" id="59280ce0-5055-4c9d-ae5c-b8d3f0ca4983">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>week_store</dataSourceStep>
+      <targetStep>games_by_week</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>dacadcb9-9968-42e3-b3ae-57b7539709a7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b66b235e-89b0-4073-a4ad-9b74fd04d9e4</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>59280ce0-5055-4c9d-ae5c-b8d3f0ca4983</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

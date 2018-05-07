@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="players" path="/players" id="55a13fa0-5e0c-467c-a505-ad859b979f89" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="55a13fa0-5e0c-467c-a505-ad859b979f89fileName">players</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter>
+      <con:name>team</con:name>
+      <con:value>all</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>all</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:resource name="{id}" path="{id}" id="8ffa0228-dea6-47ed-a64d-405aa05ae06d">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>id</con:name>
+        <con:value>id</con:value>
+        <con:style>TEMPLATE</con:style>
+        <con:default>id</con:default>
+      </con:parameter>
+    </con:parameters>
+    <con:method name="Method 1" id="3e0edfdc-761b-45e1-abd3-e97a9b150c7e" method="GET">
+      <con:settings/>
+      <con:parameters/>
+      <con:request name="Request 1" id="f479615a-7416-4ec2-82fa-75e2a9c384a0" mediaType="application/json">
+        <con:settings/>
+        <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+        <con:request/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:method>
+  </con:resource>
+  <con:method name="Method 1" id="96a0c2c3-e8ae-4a86-b12a-f6b8467f6c5b" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:play="http://10.0.30.175/players">play:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="b2bc1302-7597-4fe1-a68f-92a92b984622" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://10.0.30.175:4567</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://10.0.30.175/players</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="0277168d-942a-435a-a57e-c4eb30582c37">
+          <con:authProfile>No Authorization</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+</con:resource>
